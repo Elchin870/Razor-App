@@ -1,0 +1,78 @@
+﻿@page
+@model RazorTestAfternoon.Pages.Product.IndexModel
+@{
+}
+
+@*
+ *@
+
+@if (Model.Info != "")
+
+{
+	<div class="alert alert-success" role="alert">
+		@Model.Info
+	</div>
+}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Price</th>
+			<th scope="col">#</th>
+			<th scope="col">#</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Products)
+
+		{
+			<tr>
+				<td scope="row">@item.Name</td>
+				<td scope="row">@item.Price</td>
+				<td scope="row">
+					<form method="get" asp-page-handler="Edit">
+						<input type="hidden" name="id" value="@item.Id" />
+						<button type="submit" class="btn btn-outline-warning">Edit</button>
+					</form>
+				</td>
+				<td scope="row">
+					<form method="post" asp-page-handler="Delete">
+						<input type="hidden" name="id" value="@item.Id" />
+						<button type="submit" class="btn btn-outline-danger">Delete</button>
+					</form>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<form method="post">
+	<div class="m-3">
+		<label class="form-label">Product Name</label>
+		<input asp-for="Product.Name" class="form-control" />
+	</div>
+	<div class="m-3">
+		<label class="form-label">Product Price</label>
+		<input asp-for="Product.Price" class="form-control" />
+	</div>
+	<div class="m-3">
+		<button type="submit" class="btn btn-success">Add new Product</button>
+	</div>
+</form>
+
+
+@* <h1>Edit Product</h1>
+<form method="post" asp-page-handler="Update">
+	<div class="m-3">
+		<label class="form-label">Product Name</label>
+		<input asp-for="Product.Name" class="form-control" />
+	</div>
+	<div class="m-3">
+		<label class="form-label">Product Price</label>
+		<input asp-for="Product.Price" class="form-control" />
+	</div>
+	<div class="m-3">
+		<button type="submit" class="btn btn-primary">Update Product</button>
+	</div>
+</form> *@
