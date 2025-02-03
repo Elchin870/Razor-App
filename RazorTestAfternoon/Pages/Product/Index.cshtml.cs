@@ -53,32 +53,7 @@ namespace RazorTestAfternoon.Pages.Product
 			}
 
 			return RedirectToPage("Index", new { info = Info });
-		}
-
-        //edit islemedi
-        public void OnGetEdit(int id)
-        {
-            Product = _context.Products.FirstOrDefault(p => p.Id == id);
-        }
-
-        public IActionResult OnPostEdit()
-        {
-            if (Product != null)
-            {                
-                var editProduct = _context.Products.FirstOrDefault(p => p.Id == Product.Id);
-
-                if (editProduct != null)
-                {
-                    editProduct.Name = Product.Name;
-                    editProduct.Price = Product.Price;
-                    _context.SaveChanges();
-                    Info = $"{Product.Name} updated successfully!";
-                    return RedirectToPage("Index", new { info = Info });
-                }
-            }
-            return RedirectToPage("Index", new { info = "Product update failed." });
-
-        }
+		}         
 
     }
 }

@@ -31,10 +31,7 @@
 				<td scope="row">@item.Name</td>
 				<td scope="row">@item.Price</td>
 				<td scope="row">
-					<form method="get" asp-page-handler="Edit">
-						<input type="hidden" name="id" value="@item.Id" />
-						<button type="submit" class="btn btn-outline-warning">Edit</button>
-					</form>
+					<a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning">Edit</a>
 				</td>
 				<td scope="row">
 					<form method="post" asp-page-handler="Delete">
@@ -62,17 +59,4 @@
 </form>
 
 
-@* <h1>Edit Product</h1>
-<form method="post" asp-page-handler="Update">
-	<div class="m-3">
-		<label class="form-label">Product Name</label>
-		<input asp-for="Product.Name" class="form-control" />
-	</div>
-	<div class="m-3">
-		<label class="form-label">Product Price</label>
-		<input asp-for="Product.Price" class="form-control" />
-	</div>
-	<div class="m-3">
-		<button type="submit" class="btn btn-primary">Update Product</button>
-	</div>
-</form> *@
+
